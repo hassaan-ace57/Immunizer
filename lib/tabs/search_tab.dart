@@ -23,7 +23,7 @@ class _SearchTabState extends State<SearchTab> {
             Center(
               child: Container(
                 child: Text(
-                  "Search Results",
+                  "About us\n\n Immunizer is Simple Vaccination app designed for\n ease of vaccination delivery.",
                   style: Constants.regularDarkText,
                 ),
               ),

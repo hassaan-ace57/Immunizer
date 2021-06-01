@@ -10,7 +10,6 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-
   // Build an alert dialog to display some errors.
   Future<void> _alertDialogBuilder(String error) async {
     return showDialog(
@@ -31,8 +30,7 @@ class _RegisterPageState extends State<RegisterPage> {
               )
             ],
           );
-        }
-    );
+        });
   }
 
   // Create a new user account
@@ -41,7 +39,7 @@ class _RegisterPageState extends State<RegisterPage> {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: _registerEmail, password: _registerPassword);
       return null;
-    } on FirebaseAuthException catch(e) {
+    } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         return 'The password provided is too weak.';
       } else if (e.code == 'email-already-in-use') {
@@ -63,7 +61,7 @@ class _RegisterPageState extends State<RegisterPage> {
     String _createAccountFeedback = await _createAccount();
 
     // If the string is not null, we got error while create account.
-    if(_createAccountFeedback != null) {
+    if (_createAccountFeedback != null) {
       _alertDialogBuilder(_createAccountFeedback);
 
       // Set the form to regular state [not loading].
@@ -82,6 +80,9 @@ class _RegisterPageState extends State<RegisterPage> {
   // Form Input Field Values
   String _registerEmail = "";
   String _registerPassword = "";
+  String _registerAge = "";
+  String _registerGender = "";
+  String _registerMC = "";
 
   // Focus Node for input fields
   FocusNode _passwordFocusNode;
@@ -109,10 +110,10 @@ class _RegisterPageState extends State<RegisterPage> {
             children: [
               Container(
                 padding: EdgeInsets.only(
-                  top: 24.0,
+                  top: 1.0,
                 ),
                 child: Text(
-                  "Create A New Account",
+                  "Immunizer Registration Page",
                   textAlign: TextAlign.center,
                   style: Constants.boldHeading,
                 ),
@@ -120,7 +121,7 @@ class _RegisterPageState extends State<RegisterPage> {
               Column(
                 children: [
                   CustomInput(
-                    hintText: "Email...",
+                    hintText: "Type Email",
                     onChanged: (value) {
                       _registerEmail = value;
                     },
@@ -130,7 +131,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     textInputAction: TextInputAction.next,
                   ),
                   CustomInput(
-                    hintText: "Password...",
+                    hintText: "Type Password",
                     onChanged: (value) {
                       _registerPassword = value;
                     },
@@ -139,6 +140,26 @@ class _RegisterPageState extends State<RegisterPage> {
                     onSubmitted: (value) {
                       _submitForm();
                     },
+                  ),
+                  CustomInput(
+                    hintText: "Type Age,Gender",
+                    onChanged: (value) {
+                      _registerAge = value;
+                    },
+                    onSubmitted: (value) {
+                      _passwordFocusNode.requestFocus();
+                    },
+                    textInputAction: TextInputAction.next,
+                  ),
+                  CustomInput(
+                    hintText: "Type Medical Conditions",
+                    onChanged: (value) {
+                      _registerGender = value;
+                    },
+                    onSubmitted: (value) {
+                      _passwordFocusNode.requestFocus();
+                    },
+                    textInputAction: TextInputAction.next,
                   ),
                   CustomBtn(
                     text: "Create New Account",
@@ -151,7 +172,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                  bottom: 16.0,
+                  bottom: 0.5,
                 ),
                 child: CustomBtn(
                   text: "Back To Login",
