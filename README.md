@@ -1,6 +1,6 @@
-# Flutter E-Commerce
+# Flutter Immunizer
 
-A simple E-Commerce App for flutter using firebase.
+A simple Vaccination App for flutter using firebase.
 
 ## Getting Started
 

@@ -121,7 +121,7 @@ class _RegisterPageState extends State<RegisterPage> {
               Column(
                 children: [
                   CustomInput(
-                    hintText: "Type Email",
+                    hintText: "Email...",
                     onChanged: (value) {
                       _registerEmail = value;
                     },
@@ -131,7 +131,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     textInputAction: TextInputAction.next,
                   ),
                   CustomInput(
-                    hintText: "Type Password",
+                    hintText: "Password...",
                     onChanged: (value) {
                       _registerPassword = value;
                     },
@@ -142,7 +142,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     },
                   ),
                   CustomInput(
-                    hintText: "Type Age,Gender",
+                    hintText: "Age and Gender...",
                     onChanged: (value) {
                       _registerAge = value;
                     },
@@ -152,7 +152,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     textInputAction: TextInputAction.next,
                   ),
                   CustomInput(
-                    hintText: "Type Medical Conditions",
+                    hintText: "Medical Conditions...",
                     onChanged: (value) {
                       _registerGender = value;
                     },
